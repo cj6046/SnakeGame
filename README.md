@@ -15,3 +15,11 @@ I continuously want to challenge myself to learn new things, so I have decided t
 * Adding a high score functionality
     * Find a way to store this data on the cloud
 * Export the game to the app store or make it playable as an online application
+
+# The Tutorial
+
+I feel obligated to point out that I am following a tutorial to create this game. The tutorial is found on youtube at the following link:
+
+https://www.youtube.com/watch?v=bI6e6qjJ8JQ&t=590s
+
+There are often problems with following along to tutorials, namely that one doesn't actually learn anything and instead copies code verbatim. Not only am I not trying to pass off all of this code as mine, but I am also pointing to this potential short-coming as a way to announce my awareness of it. It is my hope that once I go through the tutorial once, with plenty of notes and researching anything I don't understand, that I will be able to then create a version fully on my own. 
