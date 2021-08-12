@@ -1,8 +1,8 @@
-## Snake: The Game
+# Snake: The Game
 
 I continuously want to challenge myself to learn new things, so I have decided to try my hand at making a simple game. The game of Snake has long been a traditional starting point for beginner developers to test their skills and grow. And so, I continue the tradition.
 
-# Challenges
+## Challenges
 
 * Create a functioning snake game with the following MVP features:
     * Player can control the direction of the "snake"
@@ -16,7 +16,7 @@ I continuously want to challenge myself to learn new things, so I have decided t
     * Find a way to store this data on the cloud
 * Export the game to the app store or make it playable as an online application
 
-# The Tutorial
+## The Tutorial
 
 I feel obligated to point out that I am following a tutorial to create this game. The tutorial is found on youtube at the following link:
 
