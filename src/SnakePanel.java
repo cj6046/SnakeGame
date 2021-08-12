@@ -68,24 +68,29 @@ public class SnakePanel extends JPanel implements ActionListener {
      * @param g The instance of Graphics class we are using
      */
     public void draw(Graphics g) {
-        // Drawing grid lines
-        for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
+        if(running) {
+            // Drawing grid lines
+            for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
             g.drawLine(i*UNIT_SIZE, 0, i*UNIT_SIZE, SCREEN_HEIGHT);
             g.drawLine(0, i*UNIT_SIZE, SCREEN_WIDTH, i*UNIT_SIZE);
-        }
-        // Drawing apple
-        g.setColor(Color.red);
-        g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
+            }
+            // Drawing apple
+            g.setColor(Color.red);
+            g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
 
-        for (int i = 0; i < bodyParts; i++) {
-            if (i == 0) {
-                g.setColor(Color.green);
-                g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
+            for (int i = 0; i < bodyParts; i++) {
+               if (i == 0) {
+                   g.setColor(Color.green);
+                   g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
+               }
+               else {
+                  g.setColor(new Color(45, 150, 0));
+                  g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
+              }
             }
-            else {
-                g.setColor(new Color(45, 150, 0));
-                g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
-            }
+        }
+        else {
+            gameOver(g);
         }
     }
 
@@ -126,9 +131,14 @@ public class SnakePanel extends JPanel implements ActionListener {
 
     /**
      * This method checks to see if the snake has eaten an apple
+     * and, if so, creates a new apple
      */
     private void checkApple() {
-
+        if ((x[0] == appleX) && (y[0] == appleY)) {
+            applesEaten++;
+            bodyParts++;
+            spawnApple();
+        }
     }
 
     /**
@@ -184,6 +194,8 @@ public class SnakePanel extends JPanel implements ActionListener {
     public class myKeyAdapter extends KeyAdapter {
         /**
          * This class gets the key input from the user
+         * 
+         * @param e The KeyEvent being passed to the method
          */
         @Override
         public void keyPressed(KeyEvent e) {
