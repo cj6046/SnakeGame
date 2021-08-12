@@ -149,6 +149,10 @@ public class SnakePanel extends JPanel implements ActionListener {
         if (y[0] > SCREEN_HEIGHT || y[0] < 0) {
             running = false;
         }
+        // If gameOver, stop timer
+        if (!running) {
+            timer.stop();
+        }
     }
 
     /**
@@ -175,7 +179,7 @@ public class SnakePanel extends JPanel implements ActionListener {
     }
 
     /**
-     * Internal class for getting user input
+     * Inner class for getting user input
      */
     public class myKeyAdapter extends KeyAdapter {
         /**
@@ -183,7 +187,28 @@ public class SnakePanel extends JPanel implements ActionListener {
          */
         @Override
         public void keyPressed(KeyEvent e) {
-
+            switch(e.getKeyCode()) {
+                case KeyEvent.VK_LEFT :
+                    if (direction != 'R') {
+                        direction = 'L';
+                    }
+                    break;
+                case KeyEvent.VK_RIGHT :
+                    if (direction != 'L') {
+                        direction = 'R';
+                    }
+                    break;
+                case KeyEvent.VK_DOWN : 
+                    if (direction != 'U') {
+                        direction = 'D';
+                    }
+                    break;
+                case KeyEvent.VK_UP :
+                    if (direction != 'D') {
+                        direction = 'U';
+                    }
+                    break;
+            }
         }
     }
     
